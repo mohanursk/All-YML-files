@@ -1,0 +1,22 @@
+---
+ - name: Error Handling
+   hosts: all
+   tasks:
+      block:
+        - name: Install Tomcat7
+          apt:
+            name: tomcat7
+            state: present
+      rescue:
+        - name: Install Tomcat8
+          apt:
+            name: tomcat8
+            state: present
+      always:
+        - name: check url response
+          uri:
+            url: "{{item}}"
+            status_code: 200
+          with_items:
+            - http://target1
+            - http://target2

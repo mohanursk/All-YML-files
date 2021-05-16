@@ -1,0 +1,13 @@
+---
+ - name: Calling child playbook
+   hosts: all
+   tasks:
+     - name: Call child playbook for file creation
+       include: childpb.yml
+...
+
+
+
+
+
+

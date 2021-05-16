@@ -1,0 +1,26 @@
+---
+- name: Implimanting Handlers
+  hosts: all
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+      notify: check URL response
+    - name: Edit index.html
+      copy:
+        content: "Mohan Urs Home Page\n"
+        dest: path of the index.html
+      notify: restart apache2
+  Handlers:
+    - name: restart apache2
+      service:
+        name: apache2
+        state: restarted
+    - name: check URL Response
+      uri:
+        url: "{{item}}"
+        status_code: 200
+      with_item:
+        - http://target1
+        - http://target2

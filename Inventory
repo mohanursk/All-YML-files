@@ -1,0 +1,15 @@
+[webserver]
+Target1 ansible_host=192.168.1.5
+Target2 ansible_host=192.168.1.10
+
+[appserver]
+Target1 ansible_host=192.168.1.5
+Target2 ansible_host=192.168.1.10
+
+[dbserver]
+Target1 ansible_host=192.168.1.5
+Target2 ansible_host=192.168.1.10
+
+[servers:children]
+webserver
+appserver

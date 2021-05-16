@@ -1,0 +1,14 @@
+---
+ - name: Software Install
+   hosts: all
+   vars:
+     - a: apache2
+     - b: present
+     - c: yes
+   tasks:
+     - name: Install | Uninstall
+       apt:
+         name: "{{a}}"
+         state: "{{b}}"
+         update_cashe: "{{c}}"
+...

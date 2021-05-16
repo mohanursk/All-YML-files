@@ -1,0 +1,6 @@
+---
+ - name: "Uninstall Soft"
+   hosts: Target1
+   tasks:
+    - name: Apache2 Uninstall
+      apt: name=apache2 state=absent purge=yes

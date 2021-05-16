@@ -1,0 +1,20 @@
+---
+- name: Create multiple users & home dir using Loops
+  hosts: all
+  tasks:
+    - name: User creation
+      user:
+       name: "{{item.a}}"
+       password: "{{item.b}}"
+       home: "{{item.c}}"
+      with_items:
+        - {a: Ravi,b: Admin@123,c: /home/Ravi/}
+        - {a: Mohan,b: Admin@123,c: /home/ubuntu/Mohan}
+    - name: Create file/dir in users home dir
+      file:
+        name: "{{item.a}}"
+        state: "{{item.b}}"
+      with_items:
+        - {a: /home/Ravi/DataFile,b: touch}
+        - {a: /home/ubuntu/Mohan/MyFile, b: directory}
+

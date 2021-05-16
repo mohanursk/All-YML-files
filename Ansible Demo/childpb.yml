@@ -1,0 +1,6 @@
+---
+ - name: File creation
+   file:
+     name: Mohandata
+     state: touch
+...

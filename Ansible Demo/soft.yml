@@ -1,0 +1,12 @@
+---
+- name: User creation in all the nodes
+  hosts: all
+  tasks:
+     - name: User Account Creation
+       user:
+           name: Mohan
+           password: Admin@123
+           uid:  1234
+           home: /home/Mohan
+           shell: /bin/bash
+           commant: ‘A super user'

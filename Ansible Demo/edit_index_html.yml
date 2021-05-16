@@ -1,0 +1,5 @@
+---
+ - name: Edit apache index.html file
+   copy:
+     content: THIS IS A APPLICATION SERVER & USED FOR TESTING CASES.
+     dest: /var/www/html/index.html

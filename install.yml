@@ -1,0 +1,12 @@
+---
+ -  name: Soft uninstall
+    hosts: Target2
+    tasks:
+      - name: Apache2 uninstall
+        apt: name=apache2 state=absent purge=yes
+
+ -  name: Software uninstallation
+    hosts: Target1
+    tasks :
+      - name: apache2 uninstall
+        apt: name=apache2 state=absent purge=yes
